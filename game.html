@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Deck of Cards</title>
+	<script src="scripts/jquery.min.js"></script>     
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/game.css">
+	<link rel="stylesheet" href="css/dragula.css">
+    <script src="scripts/bootstrap.js" type="text/javascript"></script>
+    <script src="scripts/game.js" type="text/javascript"></script>
+    <script>
+	    function allowDrop(ev) {
+	        ev.preventDefault();
+	    }
+
+	    function drag(ev) {
+	        ev.dataTransfer.setData("text", ev.target.id);
+	    }
+
+	    function drop(ev) {
+	        ev.preventDefault();
+	        var id = ev.target.id;
+	        var data = ev.dataTransfer.getData("text");
+	        if(~data.indexOf("hearts") && ~id.indexOf("hearts"))
+	        	$('#'+data).addClass("hidden");
+	        else if(~data.indexOf("diamonds") && ~id.indexOf("diamonds"))
+	        	$('#'+data).addClass("hidden");
+	        else if(~data.indexOf("spades") && ~id.indexOf("spades"))
+	        	$('#'+data).addClass("hidden");
+	        else if(~data.indexOf("clubs") && ~id.indexOf("clubs"))
+	        	$('#'+data).addClass("hidden");
+	    }
+    </script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row text-center">
+			<h1>Deck Game</h1>
+		</div>
+		<div class="row" id="cards-container">
+		</div>
+		<div class="row" id="pack-container">
+			<div id="hearts" class="box text-center" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<h3>Hearts</h3>
+			</div>
+			<div id="diamonds" class="box text-center" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<h3>Diamonds</h3>
+			</div>
+			<div id="spades" class="box text-center" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<h3>Spades</h3>
+			</div>
+			<div id="clubs" class="box text-center" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<h3>Clubs</h3>
+			</div>
+		</div>
+		<div class="row text-center" id="btn-container">
+			<input type="button" name="new-game-btn" class="btn btn-success btn-lg" value="New Game" id="new-game-btn">	
+		</div>
+	</div>
+</body>
+</html>

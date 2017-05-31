@@ -1,0 +1,45 @@
+.hidden{
+	display: none;
+}
+#cards-container{
+	height: 370px;
+}
+#pack-container{
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.box{
+	height: 180px;
+	margin: 20px 25px;
+	width: 180px;
+}
+#hearts{
+	background-color: #66c2ff;
+}
+#diamonds{
+	background-color: #ff751a;
+}
+#spades{
+	background-color: #99ff99;
+}
+#clubs{
+	background-color: #ff8080;
+}
+.card{
+	background-color: #fff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	cursor: pointer;
+	height: 130px;
+	margin: 0 15px;
+	position: absolute;
+	text-align: center;
+	width: 130px;
+}
+.card:hover{
+	box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2), 0 15px 25px 0 rgba(0, 0, 0, 0.19);
+}
+#btn-container{
+	margin: 10px auto;
+}
